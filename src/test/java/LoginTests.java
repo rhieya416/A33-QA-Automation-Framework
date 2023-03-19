@@ -12,10 +12,13 @@ public class LoginTests extends BaseTest {
     @Test
     public static void LoginEmptyEmailPasswordTest () throws InterruptedException {
         // Simple comment
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications","--remote-allow-origins=*", "--incognito","--start-maximized");
+        WebDriver driver = new ChromeDriver(options);
 
-        String url = "https://bbb.testpro.io/";
+        driver. manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        String url = "https://testpro.io/";
         Thread.sleep(2000);
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
@@ -43,9 +46,11 @@ public class LoginTests extends BaseTest {
            // click the login button
         //Expected result: User should stay on login page
            // assert the present of email field
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications","--remote-allow-origins=*", "--incognito","--start-maximized");
+        WebDriver driver = new ChromeDriver(options);
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver. manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         String url = "https://bbb.testpro.io/";
         driver.get(url);
@@ -86,7 +91,10 @@ public class LoginTests extends BaseTest {
         //Step3. Enter Correct password
         //Step4. Click Login button
         //Expected result: User should be directed to the home page
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications","--remote-allow-origins=*", "--incognito","--start-maximized");
+        WebDriver driver = new ChromeDriver(options);
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         String url = "https://bbb.testpro.io/";
